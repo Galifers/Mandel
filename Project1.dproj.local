@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017.06.08 10:25:07.007.pas,C:\Users\ADMIN\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Unit1.pas</Transaction>
+    <Transaction>2017.06.08 10:25:07.007.dfm,C:\Users\ADMIN\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Unit1.dfm</Transaction>
+    <Transaction>2017.06.08 10:25:08.125.pas,C:\Users\ADMIN\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Unit2.pas</Transaction>
+    <Transaction>2017.06.08 10:25:09.054.dproj,C:\Users\ADMIN\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Project1.dproj</Transaction>
+    <Transaction>2017.06.08 18:55:38.466.pas,C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Unit2.pas=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Mandelbrot.pas</Transaction>
+    <Transaction>2017.06.08 18:55:46.352.pas,C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Unit1.pas=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Main.pas</Transaction>
+    <Transaction>2017.06.08 18:55:46.352.dfm,C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Unit1.dfm=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Main.dfm</Transaction>
+    <Transaction>2017.06.08 18:58:09.282.dproj,C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Project1.dproj=C:\Users\ADMIN\Desktop\Пора работать!!!\Mandel\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

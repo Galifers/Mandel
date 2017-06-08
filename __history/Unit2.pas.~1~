@@ -1,0 +1,107 @@
+unit Unit2;
+
+interface
+
+uses Math;
+
+type
+
+  //тип комплексного числа, собственно
+  TComplex = record
+    re,im:Double;
+  end;
+
+  //указатель на комплексное число
+  PComplex = ^TComplex;
+
+function fractal_mandelbrot(c:PComplex):Longint;
+implementation
+
+uses Unit1;
+
+//базовые операции с комплексными числами
+
+function complex_abs(z:PComplex):Double;
+begin
+  Result:=sqrt(z.re * z.re + z.im * z.im);
+end;
+
+
+procedure complex_mul(dest, src:PComplex);
+var re:Double;
+begin
+  re := dest.re * src.re - dest.im * src.im;
+  dest.im := dest.re * src.im  + dest.im * src.re;
+  dest.re := re;
+end;
+
+procedure complex_add(dest, src:PComplex);
+begin
+  dest.re := dest.re + src.re;
+  dest.im := dest.im + src.im;
+end;
+
+procedure complex_sub(dest, src:PComplex);
+begin
+  dest.re := dest.re - src.re;
+  dest.im := dest.im - src.im;
+end;
+
+//возведение в произвольную степень, с помощью тригонометрической формы
+procedure complex_powr_trig(dest:PComplex; pow:Double);
+var z:TComplex;
+zabs,zpow,phi:Double;
+begin
+
+  zabs := complex_abs(dest);
+
+  if(zabs = 0)then begin
+    exit;
+  end;
+
+
+  zpow := Power(zabs, pow);
+
+  phi := ArcTan(dest.im / dest.re) * pow;
+
+  dest.re:=zpow * cos(phi);
+  dest.im:=zpow * sin(phi);
+end;
+
+
+procedure complex_sqr(dest:PComplex);
+var re:Double;
+begin
+  re := dest.re * dest.re - dest.im * dest.im;
+  dest.im := dest.re * dest.im  + dest.im * dest.re;
+  dest.re := re;
+end;
+
+//возвращаем n
+function fractal_mandelbrot(c:PComplex):Longint;
+var w:Longint;
+z:TComplex;
+izf:Double;
+begin
+  z.re:=0;
+  z.im:=0;
+
+  w:=254;
+
+  for Result:=0 to w do begin
+    //возводим в квадрат
+    complex_sqr(@z);
+
+    //прибавляем оригинал
+    complex_add(@z, c);
+    
+    //выясняем, больше ли модуль, чем нужно?
+    //число 2000 множно заменить на 2, а можно и не менять
+    if(complex_abs(@z) > 2000)then begin
+      exit;
+    end;
+
+  end;
+end;
+
+end.

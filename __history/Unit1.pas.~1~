@@ -1,0 +1,51 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Image1: TImage;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses Unit2;
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  n,iy,ix:LongInt;
+  z:TComplex;
+begin
+
+  for iy:=0 to (1024 - 1) do begin
+    for ix:=0 to (1024 - 1) do begin
+
+      z.re:=(ix - 512) / 256;
+      z.im:=(iy - 512) / 256;
+
+      n := fractal_mandelbrot(@z);
+
+      if(n > 254)then begin
+        Image1.Canvas.Pixels[ix,iy]:=0;
+      end else begin
+        Image1.Canvas.Pixels[ix,iy]:=rgb(n, n, n);
+      end;
+    end;
+  end;
+end;
+end.
